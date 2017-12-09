@@ -84,11 +84,14 @@
 			"settings":
 			{
 				"buffer_size": 1318,
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "<?php \n\n\t// Register Custom Navigation Walker\n\trequire_once(  trailingslashit( get_template_directory() ) . 'includes/navwalker/rtrrubbery-navwalker.php');\n\n\n?>\n\n<nav class=\"navigation-top-mobile navbar rnavbar-collapse\">\n\n   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#rtrrubbery-top-mobile-menu\" aria-controls=\"rtrrubbery-top-mobile-menu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n   \t\t<i class=\"fa fa-bars navbar-toggler-icon\" aria-hidden=\"true\"></i>\n   </button>\n   <?php\n\t   wp_nav_menu([\n\t     'menu'            => 'top-mobile',\n\t     'theme_location'  => 'top-mobile',\n\t     'container'       => 'div',\n\t     'container_id'    => 'rtrrubbery-top-mobile-menu',\n\t     'container_class' => 'collapse navbar-collapse justify-content-end',\n\t     'menu_id'         => false,\n\t     'menu_class'      => 'navbar-nav mr-auto',\n\t     'depth'           => 3,\n\t     'fallback_cb'     => 'rtrrubbery_bs4_centralLogo_menu_navwalker::fallback',\n\t     // 'walker'          => new rtrrubbery_bs4_centralLogo_menu_navwalker()\n\t   ]);\n\n   ?>\n\n</nav>\n",
 			"file": "template-parts/navigation/navigation-top-mobile.php",
+			"file_size": 1139,
+			"file_write_time": 131571420081863438,
 			"settings":
 			{
 				"buffer_size": 1109,
@@ -97,7 +100,10 @@
 			}
 		},
 		{
+			"contents": "<?php\n/**\n * Template Name: Two Column Page\n Template Post Type: page\n */\n?><?php get_header();  ?>\n<?php echo __FUNCTION__ ? \"<!- Start \".__FUNCTION__.\" -->\" : \"<!- Start \".__FILE__.\" -->\"; ?>\n<?php $rtrrubbery_two_column_meta = get_post_meta( get_the_ID(), 'rtrrubbery_two_column_meta', true ); ?>\n\n\n<div class=\"site-content-contain\">\n\t<div id=\"content\" class=\"site-content\">\n\t\t<div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-12 col-sm-8 col-md-9\">\n\t\t\t\t\t\t<?php if(have_posts()) : ?>\n\n\t\t\t\t\t\t     <?php while(have_posts())  : the_post(); ?>\n\n\t\t\t\t\t\t     <h1 class=\"color-first-word\"><?php the_title(); ?></h1>\n\n\t\t\t\t\t\t     <?php the_content(); ?>\n\n\t\t\t\t\t\t     <?php //comments_template( '', true ); ?> \n\n\t\t\t\t\t\t    <?php endwhile; ?> \n\n\t\t\t\t\t\t<?php else : ?>\n\n\t\t\t\t\t\t        <h3><?php _e('404 Error&#58; Not Found'); ?></h3>\n\n\t\t\t\t\t\t<?php endif; ?>  \n\t\t\t\t\t\t<?php if(  isset($rtrrubbery_two_column_meta['image']['use']) && ($rtrrubbery_two_column_meta['image']['use'] == 'true')  ){   ?>\n\t\t\t\t\t\t\t<section class=\"gallery\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"ImageGrid\">\n\t\t\t\t\t\t\t\t\t\t\t<?php \n\n\t\t\t\t\t\t\t\t\t\t\t\tif(  isset($rtrrubbery_two_column_meta['imageslinks']) && is_array($rtrrubbery_two_column_meta['imageslinks'])  ){ \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t$images_count = count( $rtrrubbery_two_column_meta['imageslinks'] ); \n\n\t\t\t\t\t\t\t\t\t\t\t\t\tfor ($i = 0; $i < $images_count; $i++) {\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t$the_link =  isset( $rtrrubbery_two_column_meta['imageslinks'][$i] ) ? $rtrrubbery_two_column_meta['imageslinks'][$i] : '';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t?>\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a data-fancybox=\"gallery\" data-type=\"image\" href=\"<?php echo wp_get_attachment_image_src( $the_link, 'large' )[0];?>\" >\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"<?php echo wp_get_attachment_image_src( $the_link, 'thumbnail')[0]; ?>\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<?php\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t} \n\t\t\t\t\t\t\t\t\t\t\t?>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</section>\n\t\t\t\t\t\t <?php  } ?>\n\t\t\t\t\t </div>\n\t\t\t\t\t <div class=\"col-12 col-sm-4 col-md-3\">\n\t\t\t\t\t \t<?php get_sidebar(); ?>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div><!-- .wrap -->\n\t</div><!-- #content -->\n</div><!-- .site-content-contain -->\n\n<?php echo __FUNCTION__ ? \"<!- End \".__FUNCTION__.\" -->\" : \"<!- End \".__FILE__.\" -->\" ?>\n<?php get_footer(); ?>\n<?php  ?>",
 			"file": "page-templates/two-columns-page.php",
+			"file_size": 2345,
+			"file_write_time": 131571513551785259,
 			"settings":
 			{
 				"buffer_size": 2274,
@@ -106,7 +112,10 @@
 			}
 		},
 		{
+			"contents": "<?php\n/**\n * Template Name: One Column Page\n Template Post Type: page\n */\n?>\n<?php get_header();  ?>\n<?php echo __FUNCTION__ ? \"<!- Start \".__FUNCTION__.\" -->\" : \"<!- Start \".__FILE__.\" -->\"; ?>\n<?php $rtrrubbery_one_column_meta = get_post_meta( get_the_ID(), 'rtrrubbery_one_column_meta', true ); ?>\n\n\n<div class=\"site-content-contain\">\n\t<div id=\"content\" class=\"site-content\">\n\t\t<div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t<?php if(have_posts()) : ?>\n\n\t\t\t\t\t\t     <?php while(have_posts())  : the_post(); ?>\n\n\t\t\t\t\t\t     <h1 class=\"color-first-word\"><?php the_title(); ?></h1>\n\n\t\t\t\t\t\t     <?php the_content(); ?>\n\n\t\t\t\t\t\t     <?php //comments_template( '', true ); ?> \n\n\t\t\t\t\t\t    <?php endwhile; ?> \n\n\t\t\t\t\t\t<?php else : ?>\n\n\t\t\t\t\t\t        <h3><?php _e('404 Error&#58; Not Found'); ?></h3>\n\n\t\t\t\t\t\t<?php endif; ?>  \n\t\t\t\t\t</div>\n\t\t\t\t\t<?php if(  isset($rtrrubbery_one_column_meta['image']['use']) && ($rtrrubbery_one_column_meta['image']['use'] == 'true')  ){   ?>\n\t\t\t\t\t\t<section class=\"gallery\">\n\t\t\t\t\t\t\t\t\t<div class=\"ImageGrid\">\n\t\t\t\t\t\t\t\t\t\t<?php \n\n\t\t\t\t\t\t\t\t\t\t\tif(  isset($rtrrubbery_one_column_meta['imageslinks']) && is_array($rtrrubbery_one_column_meta['imageslinks'])  ){ \n\n\t\t\t\t\t\t\t\t\t\t\t\t$images_count = count( $rtrrubbery_one_column_meta['imageslinks'] ); \n\n\t\t\t\t\t\t\t\t\t\t\t\tfor ($i = 0; $i < $images_count; $i++) {\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t$the_link =  isset( $rtrrubbery_one_column_meta['imageslinks'][$i] ) ? $rtrrubbery_one_column_meta['imageslinks'][$i] : '';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t?>\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a data-fancybox=\"gallery\" data-type=\"image\" href=\"<?php echo wp_get_attachment_image_src( $the_link, 'large' )[0];?>\" >\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"<?php echo wp_get_attachment_image_src( $the_link, 'thumbnail')[0]; ?>\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<?php\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t} \n\t\t\t\t\t\t\t\t\t\t?>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</section>\n\t\t\t\t\t <?php  } ?>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div><!-- .wrap -->\n\t</div><!-- #content -->\n</div><!-- .site-content-contain -->\n\n<?php echo __FUNCTION__ ? \"<!- End \".__FUNCTION__.\" -->\" : \"<!- End \".__FILE__.\" -->\" ?>\n<?php get_footer(); ?>\n<?php  ?>",
 			"file": "page-templates/one-column-page.php",
+			"file_size": 2215,
+			"file_write_time": 131571513552396889,
 			"settings":
 			{
 				"buffer_size": 2146,
@@ -115,7 +124,10 @@
 			}
 		},
 		{
+			"contents": "/* global js for rtrrubbery */\n(function( $ ) {\n\n\t// \t\tDOM ready\n$( document ).ready(function() {\n\n\t//Action for shop dropdown menu when mouse hover on element\n    $('.desktop ul.navbar-nav li.dropdown').hover(\n\t    function() {\n\t\t\t$(this).addClass('show');\n\t\t\t$(this).find('.dropdown-menu').eq(0).addClass('show');\n\n\t    }, \n\t    function() {\n\t\t\t$(this).delay(800).removeClass('show');\n\t\t\t$(this).find('.dropdown-menu').eq(0).delay(800).removeClass('show');\n\t    }\n    );\n\n     $('.mobile .menu-item-has-children > a.dropdown-item').attr(  {  \"href\": \"javascript:void(0)\"}  );\n\n  //   $('.mobile .level-0').on('click', '.menu-item-has-children', function(event) {\n  //   \tevent.preventDefault();\n\t\t// $(this).collapse('show');\n\t\t// $(this).attr(  {  \"aria-expanded\": \"true\"}  );\n\t\t// $(this).children('.dropdown-menu').collapse('show');\n\t\t// $(this).parents('#menu-main').collapse('show');\t\t\n\t\t// // $(this).addClass('show');\n\t\t// // $(this).attr(  {  \"aria-expanded\": \"true\"}  );\n\t\t// // $(this).children('.dropdown-menu').addClass('show');\n  //   });\n\n    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {\n      if (!$(this).next().hasClass('show')) {\n        $(this).parents('.dropdown-menu').first().find('.show').removeClass(\"show\");\n      }\n      var $subMenu = $(this).next(\".dropdown-menu\");\n      $subMenu.toggleClass('show');\n\n\n      $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {\n        $('.menu-item-has-children .show').removeClass(\"show\");\n      });\n      return false;\n    });\n\n    //Action that mark first word in widget header\n    $('.site-footer .widget-title, .color-first-word').each(function(){\n\t    var me = $(this);\n\t    me.html( me.text().replace(/(^\\w+)/,'<span>$1</span>') );\n\t  });\n\n\n\n    $(\"[data-fancybox]\").fancybox({\n    \t\tfullScreen : {\n    \t\t\tautoStart : false,\n    \t\t}\t\n    });\n\n \n});\n\n\t//\t\tPage ready\nwindow.onload = function() {\n \n    \n \n};\n\n\n})( jQuery );\n",
 			"file": "assets/js/global-front.js",
+			"file_size": 1946,
+			"file_write_time": 131571418766182251,
 			"settings":
 			{
 				"buffer_size": 1946,
@@ -127,7 +139,7 @@
 			"file": "style.less",
 			"settings":
 			{
-				"buffer_size": 31869,
+				"buffer_size": 31868,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -212,11 +224,13 @@
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/assets",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/languages",
-		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/page-templates",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/plugins"
 	],
 	"file_history":
 	[
+		"/C/Users/131416/.ssh/id_rsa",
+		"/C/Users/131416/.ssh/id_rsa.pub",
+		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/style.css",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-config.php",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/template-parts/navigation/navigation-top-left.php",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/template-parts/navigation/navigation-top-mobile.php",
@@ -257,7 +271,6 @@
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/single.php",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/index.php",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/footer.php",
-		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/style.css",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/assets/css/style-admin.css",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/assets/style-admin.less",
 		"/D/OpenServer/domains/local.rtrrubber.ca/wp-content/themes/rtrrubber.ca/assets/js/global.js",
@@ -301,7 +314,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -506,21 +519,21 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -531,36 +544,36 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -777,7 +790,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1163,7 +1176,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1307,61 +1320,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
@@ -1370,7 +1383,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1385,7 +1398,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31869,
+						"buffer_size": 31868,
 						"regions":
 						{
 							"gutter_color_10004":
@@ -21139,8 +21152,8 @@
 						"selection":
 						[
 							[
-								28413,
-								28413
+								28265,
+								28265
 							]
 						],
 						"settings":
@@ -21151,177 +21164,157 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										28391,
-										28392
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										28098,
-										28099
-									]
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										28572,
+										28573
+									]
 								}
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"bracket_highlighter.locations":
 							{
 								"close":
 								{
-									"1":
-									[
-										28553,
-										28554
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										28375,
-										28376
-									]
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										28571,
+										28572
+									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/LESS/LESS.tmLanguage",
@@ -21329,10 +21322,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 14253.0,
+						"translation.y": 7103.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -21747,7 +21740,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
