@@ -1,0 +1,134 @@
+#poststuff .nav-pills .nav-link.active,
+#poststuff .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #709e30;
+}
+#poststuff .nav-pills a.nav-link {
+  border-radius: 0;
+  color: #2f2f2f;
+  border: 1px solid #999;
+}
+#poststuff .nav-pills a.nav-link:focus {
+  box-shadow: 0 0 0 1px #709e30, 0 0 2px 1px #305002;
+}
+#poststuff .nav-pills a.nav-link.disabled {
+  color: #bbb;
+}
+#poststuff .tab-content .tab-pane > .h2 {
+  font-size: 25px;
+}
+#poststuff .postbox-container .inside {
+  padding: 0;
+  margin: 20px 0;
+}
+#poststuff .postbox-container .inside .height-500 {
+  min-height: 500px;
+}
+#poststuff .postbox-container .inside .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #709e30;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(112, 158, 48, 0.25);
+}
+#poststuff .postbox-container .inside h1,
+#poststuff .postbox-container .inside h2,
+#poststuff .postbox-container .inside h3,
+#poststuff .postbox-container .inside h4,
+#poststuff .postbox-container .inside h5,
+#poststuff .postbox-container .inside h6,
+#poststuff .postbox-container .inside .h1,
+#poststuff .postbox-container .inside .h2,
+#poststuff .postbox-container .inside .h3,
+#poststuff .postbox-container .inside .h4,
+#poststuff .postbox-container .inside .h5,
+#poststuff .postbox-container .inside .h6 {
+  color: #3f6905;
+}
+#poststuff .postbox-container .inside h3,
+#poststuff .postbox-container .inside .h3 {
+  font-size: 23px;
+}
+#poststuff #accordion {
+  padding: 5px 5px 5px 15px;
+}
+#poststuff #accordion .item {
+  border: 1px solid #aaa;
+  padding: 5px;
+  margin-bottom: 2px;
+}
+#poststuff #accordion .item a {
+  position: relative;
+  display: block;
+}
+#poststuff #accordion .item a:hover {
+  color: #709e30;
+  text-decoration: underline;
+}
+#poststuff #accordion .item a:focus {
+  box-shadow: none;
+}
+#poststuff #accordion .item .close {
+  float: none;
+  top: -5px;
+  font-size: 30px;
+  position: absolute;
+  right: 4px;
+  line-height: 1;
+  color: #5a1616;
+  text-shadow: 0 2px 0 #820b0b;
+  opacity: .8;
+}
+#poststuff #accordion .item .close:hover {
+  color: #d60c0c;
+  text-decoration: none;
+  opacity: 1;
+}
+#poststuff #accordion #add-new-advantage-more {
+  margin-top: 10px;
+}
+#poststuff #accordion button:focus {
+  outline: none;
+}
+#poststuff .remove-gallery-image:hover {
+  color: red;
+}
+#poststuff div[id*="postbox-container-"] #front-page-metabox h2.hndle {
+  color: white;
+  background-color: #709e30;
+}
+#poststuff #front-page-metabox.postbox {
+  border: 1px solid #709e30;
+}
+#poststuff #front-page-metabox.postbox .handlediv .toggle-indicator:before {
+  color: white;
+}
+#poststuff div[id*="postbox-container-"] #one-column-page-metabox h2.hndle {
+  color: white;
+  background-color: #709e30;
+}
+#poststuff #one-column-page-metabox.postbox {
+  border: 1px solid #709e30;
+}
+#poststuff #one-column-page-metabox.postbox .handlediv .toggle-indicator:before {
+  color: white;
+}
+#poststuff div[id*="postbox-container-"] #two-column-page-metabox h2.hndle {
+  color: white;
+  background-color: #709e30;
+}
+#poststuff #two-column-page-metabox.postbox {
+  border: 1px solid #709e30;
+}
+#poststuff #two-column-page-metabox.postbox .handlediv .toggle-indicator:before {
+  color: white;
+}
+#poststuff button#add-new-gallery-image {
+  margin-top: 50px;
+}
+#poststuff .advantage-set-group {
+  margin: 10px 0;
+}
+#poststuff .advantage-set-group h3 {
+  font-size: 20px;
+}

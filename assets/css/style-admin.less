@@ -1,0 +1,159 @@
+
+#poststuff{
+
+
+	.nav-pills .nav-link.active,
+	.nav-pills .show > .nav-link
+	{
+	    color: #fff;
+	    background-color: #709e30;
+	}
+	.nav-pills a.nav-link {
+	    border-radius: 0;
+    	color: #2f2f2f;
+    	border: 1px solid #999;
+    	&:focus
+    	{
+    		box-shadow: 0 0 0 1px #709e30, 0 0 2px 1px rgb(48, 80, 2);
+    	}
+    	&.disabled {
+    		color: #bbb;
+		}
+	}
+
+	.tab-content 
+	{
+		.tab-pane > .h2 {
+		    font-size: 25px;
+		}
+	}
+
+	.postbox-container .inside 
+	{
+	    padding: 0;
+	    margin: 20px 0;
+	   
+		.height-500
+		{
+			 min-height: 500px;
+		}
+	    .form-control:focus {
+	        color: #495057;
+	        background-color: #fff;
+	        border-color: #709e30;
+	        outline: none;
+	        box-shadow: 0 0 0 0.2rem rgba(112, 158, 48, 0.25);
+	    }
+
+	     h1,  h2,  h3,  h4,  h5,  h6, 
+	    .h1, .h2, .h3, .h4, .h5, .h6
+	    {
+			color: #3f6905;
+	    }
+	    h3, .h3 {
+	        font-size: 23px;
+	    }
+	}
+
+	#accordion{
+		padding: 5px 5px 5px 15px;
+		.item
+		{
+			border: 1px solid #aaa;
+			padding: 5px;
+			margin-bottom: 2px;
+			a
+			{
+				position: relative;
+				display: block;
+				&:hover {
+				    color: #709e30;
+				    text-decoration: underline;
+				}
+				&:focus
+				{
+					box-shadow: none;
+				}
+			}
+			.close 
+			{
+			    float: none; 
+			    top: -5px;
+			    font-size: 30px;
+			    position: absolute;
+			    right: 4px;
+			    line-height: 1;
+			    color: #5a1616;
+			    text-shadow: 0 2px 0 #820b0b;
+			    opacity: .8;
+			    &:hover {
+			        color: #d60c0c;
+			        text-decoration: none;
+			        opacity: 1;
+			      }
+			}
+		}
+		#add-new-advantage-more
+		{
+			margin-top: 10px;
+		}
+		button:focus {
+		    outline: none;
+		}
+	}		
+	.remove-gallery-image:hover
+	{
+		color: red;
+	}
+	div[id*="postbox-container-"] #front-page-metabox h2.hndle {
+		color: white;
+		background-color: #709e30;
+	}
+
+	#front-page-metabox.postbox {
+		border: 1px solid #709e30;
+	}
+	#front-page-metabox.postbox .handlediv .toggle-indicator:before {
+	    color: white;
+	}
+
+
+
+	div[id*="postbox-container-"] #one-column-page-metabox h2.hndle {
+		color: white;
+		background-color: #709e30;
+	}
+
+	#one-column-page-metabox.postbox {
+		border: 1px solid #709e30;
+	}
+	#one-column-page-metabox.postbox .handlediv .toggle-indicator:before {
+	    color: white;
+	}
+
+
+	div[id*="postbox-container-"] #two-column-page-metabox h2.hndle {
+		color: white;
+		background-color: #709e30;
+	}
+
+	#two-column-page-metabox.postbox {
+		border: 1px solid #709e30;
+	}
+	#two-column-page-metabox.postbox .handlediv .toggle-indicator:before {
+	    color: white;
+	}
+
+	button#add-new-gallery-image {
+    	margin-top: 50px;
+	}
+	.advantage-set-group
+	{
+		margin: 10px 0;
+		h3
+		{
+			font-size: 20px;
+		}
+	}
+
+}
