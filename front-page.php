@@ -162,11 +162,14 @@ get_header(); ?>
 										for ($i = 0; $i < $images_count; $i++) {
 
 											$the_link =  isset( $rtrrubbery_frontpage_meta['imageslinks'][$i] ) ? $rtrrubbery_frontpage_meta['imageslinks'][$i] : '';
+
+											$image_array_large = wp_get_attachment_image_src( $the_link, 'large' );
+											$image_array_thumbnail = wp_get_attachment_image_src( $the_link, 'thumbnail' );
 											
 											?>			
 
-												<a data-fancybox="gallery" data-type="image" href="<?php echo wp_get_attachment_image_src( $the_link, 'large' )[0];?>" >
-													<img src="<?php echo wp_get_attachment_image_src( $the_link, 'thumbnail')[0]; ?>" alt="">
+												<a data-fancybox="gallery" data-type="image" href="<?php  echo $image_array_large[0];  ?>" >
+													<img src="<?php  echo $image_array_thumbnail[0];  ?>" alt="">
 												</a>
 											
 											<?php

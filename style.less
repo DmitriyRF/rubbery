@@ -99,36 +99,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
             height: auto;
         }
     }
-    .navigation-top-right,
-    .navigation-top-left
-    {
-        padding: 0;
-    }
-    #rtrrubbery-top-left-menu,
-    #rtrrubbery-top-right-menu
-    {
-        .menu-item
-        {
-            &:hover:not(.active)
-            {
-                background-color: #333;
-            }
-        }
-
-        .nav-link
-        {
-            font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
-            font-size: 13px;
-            font-weight: 400;
-
-            min-height: 60px;
-            padding: 20px 5px 20px 8px;
-
-            text-transform: uppercase;
-
-            color: white;
-        }
-    }
 }
 .mobile{
 
@@ -165,10 +135,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
             }
             &.show > a{
 
-                border-top: 4px solid #8cc43d;
-                padding-top: 4px;
+                // border-top: 4px solid #8cc43d;
+                // padding-top: 4px;
             }
 
+        }
+        li.menu-item.show
+        {
+            border-left: 2px solid #8cc43d;
+            padding-left: 10px;
+            overflow: hidden;
         }
         ul.dropdown-menu {
             position: relative;
@@ -190,8 +166,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
             li.menu-item {
 
-                a.dropdown-item{
+                a.dropdown-item,
+                a.dropdowm-toggle
+                {
                     color: white;
+                    padding: 4px 0;
                     &:hover
                     {
                         background-color: #8cc43d;
@@ -204,37 +183,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
             }
 
         }
+
+        .nav-link 
+        {
+            padding: 5px 0 4px;                    
+        }
+
+        li.menu-item
+        {
+            &:hover:not(.show)
+            {
+                // background-color: #8cc43d;
+                // border-left: 2px solid #8cc43d;
+                // padding-left: 10px;
+            }
+        }
    
         .level-0 > li.menu-item-has-children > a
         {
             position: relative;
-
-            &:after
-            {
-                     position: absolute;
-                     top: 50%;
-                     left: 6px;
-
-                     display: block;
-
-                     width: 0;
-                     height: 0;
-                     margin-left: .255em;
-
-                     content: '';
-                     transform: translateY(-50%);
-                     vertical-align: .255em;
-
-                     border-top: 4px solid transparent;
-                     border-right: 0;
-                     border-bottom: 4px solid transparent;
-                     border-left: 4px solid;
-            }
         } 
      }
 }
 
-//https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation
 ol, ul, dl {
     padding: 0 5px;
 }
@@ -451,9 +422,15 @@ ol, ul, dl {
             color: #cbf5a2;
         }
     }
+
 }
 
-
+.widget{
+    iframe
+    {
+        width: 100%;
+    }
+}
 .ImageGrid {
     display: -webkit-box;
     display: -webkit-flex;
@@ -490,7 +467,6 @@ ol, ul, dl {
 .page-php,
 .page-template-one-columns-page,
 .page-template-two-columns-page
-
 {
     
     .site-content{
@@ -740,40 +716,6 @@ ol, ul, dl {
         {
             min-height: 100px;
         }
-
-        .logo-position
-        {
-        }
-        .navigation-top-mobile
-        {
-        }
-        .navigation-top-right,
-        .navigation-top-left
-        {
-        }
-        #rtrrubbery-top-left-menu,
-        #rtrrubbery-top-right-menu
-        {
-            .menu-item
-            {
-                &.active
-                {
-                    &:after
-                    {
-                    }
-                }
-
-                &:hover:not(.active)
-                {
-                    background-color: #333;
-                }
-            }
-
-            .nav-link
-            {
-                font-size: 14px;
-            }
-        }
     }
     .ImageGrid {
         & > a 
@@ -808,6 +750,11 @@ ol, ul, dl {
             right: -100px;
         }
     }
+    .navigation-top-right,
+    .navigation-top-left
+    {
+        padding: 0;
+    }
     .header-background-wrapper
     {
         .menu-background
@@ -830,36 +777,43 @@ ol, ul, dl {
                 height: inherit;
             }
         }
-        .dropdown-toggle::after
-        {
-            margin-left: 6px;
-
-            border-top: 4px solid;
-            border-right: 4px solid transparent;
-            border-bottom: 0;
-            border-left: 4px solid transparent;
-        }
-        .navigation-top-right,
-        .navigation-top-left
-        {
-        }
         #rtrrubbery-top-left-menu,
         #rtrrubbery-top-right-menu
         {
-            ul.navbar-nav  > .menu-item
-            {
-                padding-bottom: 7px;
-                &.active
+            .dropdown-toggle{
+                &.toogle-arrow-0:after
                 {
+                    margin-left: 6px;
+
+                    border-top: 4px solid;
+                    border-right: 4px solid transparent;
+                    border-bottom: 0;
+                    border-left: 4px solid transparent;
+                }
+                &.toogle-arrow-1:after
+                {
+
+                    margin-left: 6px;
+                    border-left: 4px solid;
+                    border-top: 4px solid transparent;
+                    border-right: 0;
+                    border-bottom: 4px solid transparent;
+                    right: 10px;
+                    position: absolute;
+                }
+
+            }
+
+            ul.navbar-nav > li.menu-item{
+
+                &.current-menu-ancestor
+                {
+                    background-color: #709e30; 
                     position: relative;
-                    & > .nav-link
-                    {
-                        background-color: #709e30;
-                    }
                     &:after
                     {
                         position: absolute;
-                        bottom: 0;
+                        bottom: -7px;
                         left: 50%;
 
                         display: block;
@@ -876,27 +830,38 @@ ol, ul, dl {
                         border-right: 7px solid transparent;
                         border-left: 7px solid transparent;
                     }
+                    .current-menu-parent{
+                        background-color: #222;
+                    }
+                    .dropdown-menu.level-0{
+                        margin-top: 7px;
+                    }
+                }
+                &.current-menu-item
+                {
+                    background-color: #709e30;
                 }
 
-                &:hover:not(.active)
+                &:not(.current-menu-ancestor):not(.current-menu-item):hover
                 {
                     background-color: #333;
                 }
+
+                &>.nav-link
+                {
+                    font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+
+                    min-height: 60px;
+                    padding: 20px 5px 20px 8px;
+
+                    text-transform: uppercase;
+
+                    color: white;
+                } 
             }
 
-            .nav-link
-            {
-                font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
-                font-size: 11.7px;
-                font-weight: 400;
-
-                min-height: 60px;
-                padding: 20px 5px 20px 8px;
-
-                text-transform: uppercase;
-
-                color: white;
-            }
         }
         .dropdown-menu.level-0
         {
@@ -907,7 +872,7 @@ ol, ul, dl {
             clear: both;
 
             width: 180px;
-            margin: -7px 0 0 0;
+            margin:  0;
             padding: 5px 0 0;
 
             list-style: none;
@@ -921,7 +886,8 @@ ol, ul, dl {
             background-clip: padding-box;
             box-shadow: 0 4px 5px rgba(0, 0, 0, .5);
 
-            .dropdown-item
+            .dropdown-item,
+            .dropdown-toggle
             {
                 font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
                 font-size: 11.7px;
@@ -958,35 +924,10 @@ ol, ul, dl {
                     background-color: #222;
                 }
             }
-
-            li.nav-item.dropdown
+            .current-menu-item
             {
-                &:after
-                {
-                    position: absolute;
-                    top: 50%;
-                    right: 13px;
-
-                    display: block;
-
-                    width: 0;
-                    height: 0;
-                    margin-left: .255em;
-
-                    content: '';
-                    transform: translateY(-50%);
-                    vertical-align: .255em;
-
-                    border-top: 4px solid transparent;
-                    border-right: 0;
-                    border-bottom: 4px solid transparent;
-                    border-left: 4px solid;
-                }
+                background-color: #222;
             }
-        }
-        .active .dropdown-menu.level-0
-        {
-            margin: 0;
         }
         .dropdown-menu.level-1
         {
@@ -1011,11 +952,8 @@ ol, ul, dl {
             .dropdown-item
             {
                 // display: block;
+                padding: 12px 0;
             }
-        }
-        .dropdown-menu .menu-item.active //.dropdown-item
-        {
-            background-color: #222;
         }
     }
     .col-lg-center
@@ -1161,7 +1099,7 @@ ol, ul, dl {
         #rtrrubbery-top-left-menu,
         #rtrrubbery-top-right-menu
         {
-            .nav-link
+            ul.navbar-nav > li.menu-item > .nav-link
             {
                 padding: 20px 10px 20px 18px;
             }

@@ -22,7 +22,7 @@
 	     'menu_class'      => 'navbar-nav mr-auto',
 	     'depth'           => 3,
 	     'fallback_cb'     => 'rtrrubbery_bs4_centralLogo_menu_navwalker::fallback',
-	     // 'walker'          => new rtrrubbery_bs4_centralLogo_menu_navwalker()
+	     'walker'          => new rtrrubbery_bs4_centralLogo_menu_navwalker()
 	   ]);
 
    ?>
