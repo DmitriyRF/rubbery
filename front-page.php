@@ -21,44 +21,154 @@ get_header(); ?>
 						<?php 
 							if( isset($rtrrubbery_frontpage_meta['slider']['shortcode']) &&  $rtrrubbery_frontpage_meta['slider']['shortcode'] != ''  ){
 									echo do_shortcode($rtrrubbery_frontpage_meta['slider']['shortcode']);
-							}
-						?>
-						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-						  <ol class="carousel-indicators">
-						    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						  </ol>
-						  <div class="carousel-inner">
-						    <div class="carousel-item active">
-						    	<div class="row">
-						    		<div class="col-12 col-lg-6">
-											<div class="sprocket-features-content">
-												<h2 class="sprocket-features-title">
-													<a href="http://www.rtrrubber.ca/ecorubber/all-mats.html" style="visibility: visible;"><span>GYM</span> &amp; HOCKEY MATS</a>
-												</h2>
-												<div class="sprocket-features-desc">
-													<span class="desc-text">Made entirely from tires collected from right here in Manitoba. Our rubber mats are made to last and are an economical alternative to costly options found elsewhere!</span>
-													<p>
-														<a href="http://www.rtrrubber.ca/ecorubber/all-mats.html" class="readon"><span>Read More</span></a>
-													</p>
-												</div>
-											</div>
-						    		</div>
-						    		<div class="col-12 col-lg-6">						      
-						    			<img class="" src=<?php echo THEME_URI . "assets/images/slide.png"; ?> alt="First slide">
-						    		</div>
-						    	</div>
+							}else{
 
-						    </div>
-						  </div>
-						  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-						    <span class="carousel-control-prev-image" aria-hidden="true"></span>
-						    <span class="sr-only">Previous</span>
-						  </a>
-						  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-						    <span class="carousel-control-next-image" aria-hidden="true"></span>
-						    <span class="sr-only">Next</span>
-						  </a>
-						</div>
+								?>
+
+								<?php
+
+										include_once( THEME_DIR . 'admin/rtrrubbery-wp-database-slider.php' );
+
+										$slider_array         =	wpdb_get_all_slider(0,0);
+
+										$slider_number		  = count($slider_array);
+
+								 ?>
+
+								 <?php
+
+								 	if(  $slider_number ){
+								 		
+										?>
+											<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+												<ol class="carousel-indicators">
+
+													<?php
+														for ($i = 0; $i <= $slider_number; $i++) {
+													?>
+
+														<li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i; ?>" class="<?php echo $i == 0 ? 'active' : ''; ?>"></li>
+
+													<?php 
+														}//for
+													?>
+
+												 </ol>
+
+												  	<div class="carousel-inner">
+
+													<?php 
+
+														foreach ($slider_array as $key => $slider) {
+
+															if(  isset( $slider ) && is_array ($slider)  ){
+																?>
+															    <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
+															    	<div class="row">
+
+															    		<div class="col-12 col-lg-6">
+																				<div class="sprocket-features-content">
+
+																					<?php
+
+																				    	$header = $slider['header'];
+
+																					    $curent_link = $slider['link'];
+																					        
+																				        if(  isset(  $header ) &&  $header != '' ){
+
+																				        	if(  isset(  $curent_link ) &&  $curent_link != '' ){
+
+																				        		echo '<h2 class="sprocket-features-title"><a href="'. $curent_link . '">' . $header . '</a></h2>';
+
+																				        	}else{
+																				        		echo '<h2 class="sprocket-features-title">' . $header . '</h2>';
+																				        	}//else
+																				        
+																				        }//if
+
+																					 ?>
+
+																					<div class="sprocket-features-desc">
+
+																						<?php echo isset( $slider['description'] ) &&  $slider['description']!='' ? '<span class="desc-text">'.$slider['description'].'</span>' : ''; ?>
+																						<p>
+																							<?php 
+
+																								if( isset( $slider['link'] ) &&  $slider['link']!='' ){
+
+																									?>
+
+																										<a href="<?php echo $slider['link']; ?>" class="readon"><span><?php echo isset( $slider['button'] ) &&  $slider['button']!='' ? $slider['button'] : 'Read more'; ?></span></a>
+
+																									<?php
+																								}
+
+																							?>
+																						</p>
+
+																					</div>
+
+																				</div>
+															    		</div>
+															    		<div class="col-12 col-lg-6">
+
+															    			<?php
+
+																		    	$image = $slider['image'];
+
+																			    $curent_link = $slider['link'];
+																			        
+																		        if(  isset(  $image ) &&  $image != '' ){
+
+																		             $image =  wp_get_attachment_image_src( $image, 'full' )[0];
+
+																		        	if(  isset(  $curent_link ) &&  $curent_link != '' ){
+
+																		        		echo '<a href="'. $curent_link . '"><img class="slider-list-image" src="' . $image . '"></a>';
+
+																		        	}else{
+																		        		echo '<img  src="' . $image . '">';
+																		        	}//else
+																		        
+																		        }//if
+																			 ?>
+
+															    		</div>
+															    	</div>
+
+															    </div>
+
+																<?php 
+
+															}//if
+
+														}//foreach
+
+													?>
+												  	</div>
+
+												  	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+												    	<span class="carousel-control-prev-image" aria-hidden="true"></span>
+												   		<span class="sr-only">Previous</span>
+												  	</a>
+												  	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+												    	<span class="carousel-control-next-image" aria-hidden="true"></span>
+												    	<span class="sr-only">Next</span>
+												  	</a>
+											</div>
+
+											<?php
+
+										}//if
+
+									?>
+
+								<?php 
+
+							}//else
+						?>
 
 					</div>
 				</div>

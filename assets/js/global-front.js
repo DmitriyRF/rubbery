@@ -35,7 +35,7 @@ $( document ).ready(function() {
     });
 
     //Action that mark first word in widget header
-    $('.site-footer .widget-title, .color-first-word').each(function(){
+    $('.site-footer .widget-title, .color-first-word, .sprocket-features-title a').each(function(){
 	    var me = $(this);
 	    me.html( me.text().replace(/(^\w+)/,'<span>$1</span>') );
 	  });

@@ -18,7 +18,7 @@ function rtrrubbery_admin_menus(){
 
 		add_menu_page(
 			__( 'Settings', 'rtrrubbery'),
-			__( 'Rtrrubbery', 'rtrrubbery'),
+			__( 'RTR Rubbery', 'rtrrubbery'),
 			'edit_theme_options',
 			'rtrrubbery_theme_options_page',
 			'rtrrubbery_theme_sliders_function'
