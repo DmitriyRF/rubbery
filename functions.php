@@ -29,6 +29,7 @@ include( THEME_DIR . "admin/menus/dashboard-menu-tab.php");
 include( THEME_DIR . "includes/rtrrubbery-create-custom-post-type.php");
 include( THEME_DIR . "includes/rtrrubbery-setup.php");
 include( THEME_DIR . "includes/rtrrubbery-front-enqueue-assets.php");
+include( THEME_DIR . "includes/rtrrubbery-activation.php");
 include( THEME_DIR . "widgets/rtrrubbery-widgets-init.php");
 
 include( THEME_DIR . "includes/metabox/rtrrubbery-add-metabox-to.php");

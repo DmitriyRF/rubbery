@@ -132,3 +132,87 @@
 #poststuff .advantage-set-group h3 {
   font-size: 20px;
 }
+li.wp-not-current-submenu a.toplevel_page_rtrrubbery_theme_options_page {
+  background-color: #709e30;
+}
+li.toplevel_page_rtrrubbery_theme_options_page {
+  background-color: #709e30;
+}
+.wp-list-table .column-ID {
+  width: 7%;
+}
+.wp-list-table .column-header {
+  width: 13%;
+}
+.wp-list-table .column-description {
+  width: 60%;
+}
+.wp-list-table .column-image {
+  width: 20%;
+  text-align: center;
+}
+.wp-list-table .slider-list-image {
+  max-width: 200px;
+  width: 100%;
+}
+.add-sleder-form button,
+.edit-slider-form button {
+  font-size: 16px;
+}
+.add-sleder-form table input,
+.edit-slider-form table input,
+.add-sleder-form table textarea,
+.edit-slider-form table textarea {
+  width: 100%;
+  border-color: #558e06;
+}
+.add-sleder-form table input[type=text]:focus,
+.edit-slider-form table input[type=text]:focus,
+.add-sleder-form table input[type=search]:focus,
+.edit-slider-form table input[type=search]:focus,
+.add-sleder-form table input[type=radio]:focus,
+.edit-slider-form table input[type=radio]:focus,
+.add-sleder-form table input[type=tel]:focus,
+.edit-slider-form table input[type=tel]:focus,
+.add-sleder-form table input[type=time]:focus,
+.edit-slider-form table input[type=time]:focus,
+.add-sleder-form table input[type=url]:focus,
+.edit-slider-form table input[type=url]:focus,
+.add-sleder-form table input[type=week]:focus,
+.edit-slider-form table input[type=week]:focus,
+.add-sleder-form table input[type=password]:focus,
+.edit-slider-form table input[type=password]:focus,
+.add-sleder-form table input[type=checkbox]:focus,
+.edit-slider-form table input[type=checkbox]:focus,
+.add-sleder-form table input[type=color]:focus,
+.edit-slider-form table input[type=color]:focus,
+.add-sleder-form table input[type=date]:focus,
+.edit-slider-form table input[type=date]:focus,
+.add-sleder-form table input[type=datetime]:focus,
+.edit-slider-form table input[type=datetime]:focus,
+.add-sleder-form table input[type=datetime-local]:focus,
+.edit-slider-form table input[type=datetime-local]:focus,
+.add-sleder-form table input[type=email]:focus,
+.edit-slider-form table input[type=email]:focus,
+.add-sleder-form table input[type=month]:focus,
+.edit-slider-form table input[type=month]:focus,
+.add-sleder-form table input[type=number]:focus,
+.edit-slider-form table input[type=number]:focus,
+.add-sleder-form table select:focus,
+.edit-slider-form table select:focus,
+.add-sleder-form table textarea:focus,
+.edit-slider-form table textarea:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px #28a745;
+}
+.add-sleder-form table td td,
+.edit-slider-form table td td {
+  padding: 0;
+}
+.sliders-list .column-header,
+.sliders-list .column-description {
+  font-size: 15px;
+}
+#image-preview-attachment {
+  margin: 20px 0;
+}

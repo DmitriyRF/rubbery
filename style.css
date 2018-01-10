@@ -88,7 +88,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
   color: white;
 }
 .mobile nav.navigation-top-mobile li.menu-item.show {
-  border-left: 2px solid #8cc43d;
+  border-left: 2px solid #709e30;
   padding-left: 10px;
   overflow: hidden;
 }
@@ -117,7 +117,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .mobile nav.navigation-top-mobile ul.dropdown-menu li.menu-item a.dropdown-item:hover,
 .mobile nav.navigation-top-mobile ul.dropdown-menu li.menu-item a.dropdowm-toggle:hover {
-  background-color: #8cc43d;
+  background-color: #709e30;
 }
 .mobile nav.navigation-top-mobile ul.dropdown-menu ul.dropdown-menu {
   margin-left: 30px;
@@ -194,7 +194,7 @@ dl {
   font-weight: 600;
 }
 .icon-wrap .title span {
-  color: #8cc43d;
+  color: #709e30;
   display: block;
   font-size: 1.4em;
   font-weight: 500;
@@ -207,7 +207,7 @@ dl {
   text-align: center;
 }
 .icon-wrap a.readon {
-  color: #8cc43d;
+  color: #709e30;
   display: inline-block;
   padding: 0;
   overflow: visible;
@@ -279,7 +279,7 @@ dl {
   margin: 2px;
 }
 .site-footer {
-  background-color: #8cc43d;
+  background-color: #709e30;
   color: #fff;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -302,7 +302,7 @@ dl {
   letter-spacing: normal;
   line-height: 27.3px;
   margin: 15px 0;
-  text-shadow: -1px 1px 0 #8cc43d, -3px 3px 0 rgba(0, 0, 0, 0.15);
+  text-shadow: -1px 1px 0 #709e30, -3px 3px 0 rgba(0, 0, 0, 0.15);
 }
 .site-footer .widget-title span {
   color: #cbf5a2;
@@ -360,7 +360,7 @@ dl {
   text-align: justify;
 }
 .color-first-word span {
-  color: #8cc43d;
+  color: #709e30;
   font-family: 'Novecentosanswide-Normal', Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
@@ -750,7 +750,7 @@ dl {
     flex: 0 0 calc(50% - 75px);
   }
   .site-footer {
-    background-color: #8cc43d;
+    background-color: #709e30;
     color: #fff;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
   }
@@ -773,7 +773,7 @@ dl {
     letter-spacing: normal;
     line-height: 27.3px;
     margin: 15px 0;
-    text-shadow: -1px 1px 0 #8cc43d, -3px 3px 0 rgba(0, 0, 0, 0.15);
+    text-shadow: -1px 1px 0 #709e30, -3px 3px 0 rgba(0, 0, 0, 0.15);
   }
   .site-footer .widget-title span {
     color: #cbf5a2;
@@ -788,7 +788,7 @@ dl {
     justify-content: center;
   }
   .wrap-404 .error-title {
-    color: #8cc43d;
+    color: #709e30;
     font-family: 'Novecentosanswide-Normal', Helvetica, Arial, sans-serif;
     font-size: 250px;
     text-shadow: -1px 1px 0px #ffffff, -3px 3px 0px rgba(0, 0, 0, 0.1);

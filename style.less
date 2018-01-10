@@ -13,6 +13,8 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+@theme-main-color:  #709e30;
+
 @keyframes fadeInDownRtrRubberyMenu
 {
     from
@@ -70,8 +72,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
     {
         min-height: 90px;
 
-        border-top: 4px solid #709e30;
-        border-bottom: 4px solid #709e30;
+        border-top: 4px solid @theme-main-color;
+        border-bottom: 4px solid @theme-main-color;
         background: #424242;
         background: url('assets/images/nav-lines.png') repeat,    -moz-linear-gradient(top, #424242 0%, #474747 100%);
         background: url('assets/images/nav-lines.png') repeat,-webkit-gradient(left top, left bottom, color-stop(0%, #424242), color-stop(100%, #474747));
@@ -135,14 +137,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
             }
             &.show > a{
 
-                // border-top: 4px solid #8cc43d;
+                // border-top: 4px solid @theme-main-color;
                 // padding-top: 4px;
             }
 
         }
         li.menu-item.show
         {
-            border-left: 2px solid #8cc43d;
+            border-left: 2px solid @theme-main-color;
             padding-left: 10px;
             overflow: hidden;
         }
@@ -173,7 +175,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
                     padding: 4px 0;
                     &:hover
                     {
-                        background-color: #8cc43d;
+                        background-color: @theme-main-color;
                     }
                 }
             }
@@ -193,8 +195,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
         {
             &:hover:not(.show)
             {
-                // background-color: #8cc43d;
-                // border-left: 2px solid #8cc43d;
+                // background-color: @theme-main-color;
+                // border-left: 2px solid @theme-main-color;
                 // padding-left: 10px;
             }
         }
@@ -284,7 +286,7 @@ ol, ul, dl {
 
         span
         {
-            color: #8cc43d;
+            color: @theme-main-color;
             display: block;
             font-size: 1.4em;
             font-weight: 500;
@@ -300,7 +302,7 @@ ol, ul, dl {
     }
     a.readon
     {
-            color: #8cc43d;
+            color: @theme-main-color;
             display: inline-block;
             padding: 0;
             overflow: visible;
@@ -312,7 +314,7 @@ ol, ul, dl {
 
             span
             {
-                background-color: #709e30;
+                background-color: @theme-main-color;
                 color: #fff;
                 text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
                 display: block;
@@ -385,7 +387,7 @@ ol, ul, dl {
 
 .site-footer
 {
-    background-color: #8cc43d;
+    background-color: @theme-main-color;
     color: #fff;
     text-shadow: -1px -1px 1px rgba(0,0,0,0.5);
 
@@ -416,7 +418,7 @@ ol, ul, dl {
         line-height:    27.3px;
 
         margin: 15px 0;
-        text-shadow: -1px 1px 0 #8cc43d, -3px 3px 0 rgba(0,0,0,0.15);
+        text-shadow: -1px 1px 0 @theme-main-color, -3px 3px 0 rgba(0,0,0,0.15);
         span
         {
             color: #cbf5a2;
@@ -493,7 +495,7 @@ ol, ul, dl {
 }
 
 .color-first-word span{
-        color: #8cc43d;
+        color: @theme-main-color;
         font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
         font-weight: 700;
 }
@@ -544,7 +546,7 @@ ol, ul, dl {
         text-decoration: none;
         span
         {
-                background-color: #709e30;
+                background-color: @theme-main-color;
                 display: block;
                 margin: 0;
                 padding: 4px 15px;
@@ -673,7 +675,7 @@ ol, ul, dl {
             text-decoration: none;
             span
             {
-                    background-color: #709e30;
+                    background-color: @theme-main-color;
                     display: block;
                     margin: 0;
                     padding: 4px 15px;
@@ -808,7 +810,7 @@ ol, ul, dl {
 
                 &.current-menu-ancestor
                 {
-                    background-color: #709e30; 
+                    background-color: @theme-main-color; 
                     position: relative;
                     &:after
                     {
@@ -839,7 +841,7 @@ ol, ul, dl {
                 }
                 &.current-menu-item
                 {
-                    background-color: #709e30;
+                    background-color: @theme-main-color;
                 }
 
                 &:not(.current-menu-ancestor):not(.current-menu-item):hover
@@ -973,7 +975,7 @@ ol, ul, dl {
 
     .site-footer
     {
-    	background-color: #8cc43d;
+    	background-color: @theme-main-color;
     	color: #fff;
     	text-shadow: -1px -1px 1px rgba(0,0,0,0.5);
 
@@ -1004,7 +1006,7 @@ ol, ul, dl {
 			line-height: 	27.3px;
 
     		margin: 15px 0;
-    		text-shadow: -1px 1px 0 #8cc43d, -3px 3px 0 rgba(0,0,0,0.15);
+    		text-shadow: -1px 1px 0 @theme-main-color, -3px 3px 0 rgba(0,0,0,0.15);
     		span
     		{
     			color: #cbf5a2;
@@ -1025,7 +1027,7 @@ ol, ul, dl {
     	}
     	.error-title
     	{
-    		    color: #8cc43d;
+    		    color: @theme-main-color;
     		    font-family: 'Novecentosanswide-Normal',Helvetica,Arial,sans-serif;
     		    font-size: 250px;
     		    text-shadow: -1px 1px 0px #fff, -3px 3px 0px rgba(0, 0, 0, 0.1);

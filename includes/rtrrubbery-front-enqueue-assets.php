@@ -10,15 +10,17 @@ add_action( 'wp_enqueue_scripts', 'rtrrubbery_scripts' );
 
 function replace_core_jquery_version() {
 
-    wp_deregister_script( 'jquery' );
-    // wp_register_script( 'jquery', "https://code.jquery.com/jquery-3.0.0.js", array(), '3.0.0' );
-    wp_register_script( 'jquery',  JS_URI.'/jquery-3.2.1.min.js', array(), '3.2.1' );
+    // wp_deregister_script( 'jquery' );
+    // // wp_register_script( 'jquery', "https://code.jquery.com/jquery-3.0.0.js", array(), '3.0.0' );
+    // wp_register_script( 'jquery',  JS_URI.'/jquery-3.2.1.min.js', array(), '3.2.1' );
 
-    wp_deregister_script( 'jquery-migrate' );
-    wp_register_script( 'jquery-migrate', JS_URI.'/jquery-migrate-3.0.0.min.js', array(), '3.0.0' );
+    // wp_deregister_script( 'jquery-migrate' );
+    // wp_register_script( 'jquery-migrate', JS_URI.'/jquery-migrate-3.0.0.min.js', array(), '3.0.0' );
 
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-windows', JS_URI.'/4windows.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'jquery-migrate' );
+    wp_enqueue_script( 'jquery-ui-core' );
 
 }
 
